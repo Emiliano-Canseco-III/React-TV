@@ -13,14 +13,160 @@ body {
   background: #111;
 }
 
+main {
+  padding-top: 3.5rem;
+  min-height: calc(100vh - 3.5rem);
+  background: #0f0f0f;
+  color: #fff;
+}
+
 #root {
   padding: 1rem;
 }
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  padding: 0.5rem 1rem;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+header > h1 {
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  margin: 0;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+nav {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  justify-content: center;
+
+  gap: 2rem;
+  padding: 1rem 0;
+  margin: 0 auto;
+
+  align-items: center;
+}
+
+nav .show {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+
+  padding: 0.25rem 0.5rem;
+  border-radius: 0;
+  display: inline-block;
+}
+
+.show-details {
+  display: block;
+  padding: 1.25rem;
+}
+
+.show-details .main-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 22ch 1fr;
+  align-items: start;
+}
+
+.show-details > h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.episode-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: transparent;
+}
+
+.episode-list li,
+.episode-list .episode-item {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+}
+
+.episode-list li.selected,
+.episode-list li:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.show-details .episode-details {
+  justify-self: center;
+  width: min(58ch, 75%);
+  align-self: start;
+  padding-top: 0.25rem;
+}
+
+.show-details .episode-details h2 {
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
+  font-weight: 800;
+  color: #fff;
+}
+
+.show-details .episode-details h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.show-details .episode-details p {
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.show-details .episode-details button,
+.show-details .episode-details .watch-btn {
+  display: block;
+  width: 100%;
+  background: #f2f2f2;
+  color: #111;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .show-details .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header > h1 {
+    position: static;
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+
+  main {
+    padding-top: 0.5rem;
+  }
+
+  .show-details .episode-details {
+    width: auto;
+    justify-self: stretch;
+  }
 }
 
 button {

@@ -17,8 +17,67 @@
 }
 
 .show-details {
-  display: grid;
+  display: block;
+  padding: 0.5rem 1rem 1.5rem;
   gap: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  align-items: center;
+}
+
+.show-details .main-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 22ch 1fr;
+  align-items: start;
+}
+
+.show-details .left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.show-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: inherit;
+}
+
+.episode-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.episode-list .episode-item,
+.episode-list li {
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+}
+
+.show-details .episode-details {
+  justify-self: center;
+  width: min(60ch, 72%);
+  align-self: start;
+  transform: translateX(-4%);
+}
+
+@media (max-width: 499px) {
+  .show-details .main-grid {
+    grid-template-columns: 1fr;
+  }
+  .show-details .episode-details {
+    justify-self: stretch;
+    width: auto;
+    transform: none;
+  }
 }
 
 @media (width >= 500px) {
