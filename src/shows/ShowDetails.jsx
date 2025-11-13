@@ -16,7 +16,12 @@ export default function ShowDetails({ show }) {
       <div className="main-grid">
         <div className="left-column">
           <h2 className="show-title">{show.name}</h2>
-          <EpisodeList episodes={show.episodes} onSelect={setSelectedEpisode} />
+          <EpisodeList
+            episodes={show.episodes}
+            onSelect={(ep, index) =>
+              setSelectedEpisode({ ...ep, number: index + 1 })
+            }
+          />
         </div>
 
         <EpisodeDetails episode={selectedEpisode} />
