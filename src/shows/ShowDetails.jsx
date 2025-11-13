@@ -18,9 +18,8 @@ export default function ShowDetails({ show }) {
           <h2 className="show-title">{show.name}</h2>
           <EpisodeList
             episodes={show.episodes}
-            onSelect={(ep, index) =>
-              setSelectedEpisode({ ...ep, number: index + 1 })
-            }
+            selectedEpisode={selectedEpisode}
+            setSelectedEpisode={setSelectedEpisode}
           />
         </div>
 
