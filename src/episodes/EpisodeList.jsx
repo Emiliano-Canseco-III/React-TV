@@ -11,10 +11,12 @@ export default function EpisodeList({
     <section className="episodes">
       <h2>{name}</h2>
       <ol>
-        {episodes.map((episode) => (
+        {episodes.map((episode, index) => (
           <li
-            key={episode.number}
-            onClick={() => setSelectedEpisode(episode)}
+            key={episode.number ?? index}
+            onClick={() =>
+              setSelectedEpisode({ ...episode, number: index + 1 })
+            }
             className={episode === selectedEpisode ? "selected" : ""}
           >
             {episode.title}
