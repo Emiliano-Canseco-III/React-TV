@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import EpisodeList from "../episodes/EpisodeList.jsx";
 import EpisodeDetails from "../episodes/EpisodeDetails.jsx";
 
-/** Allows users to browse through the episodes of the given show */
 export default function ShowDetails({ show }) {
   const [selectedEpisode, setSelectedEpisode] = useState(null);
 
@@ -14,9 +13,12 @@ export default function ShowDetails({ show }) {
 
   return (
     <section className="show-details">
-      <h2>{show.name}</h2>
       <div className="main-grid">
-        <EpisodeList episodes={show.episodes} onSelect={setSelectedEpisode} />
+        <div className="left-column">
+          <h2 className="show-title">{show.name}</h2>
+          <EpisodeList episodes={show.episodes} onSelect={setSelectedEpisode} />
+        </div>
+
         <EpisodeDetails episode={selectedEpisode} />
       </div>
     </section>
