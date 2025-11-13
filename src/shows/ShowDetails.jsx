@@ -9,14 +9,16 @@ export default function ShowDetails({ show }) {
   const [selectedEpisode, setSelectedEpisode] = useState(null);
 
   if (!show) {
-    return <p>Please select a show!</p>;
+    return <p className="select-prompt">Please select a show!</p>;
   }
 
   return (
-    <section>
+    <section className="show-details">
       <h2>{show.name}</h2>
-      <EpisodeList episodes={show.episodes} onSelect={setSelectedEpisode} />
-      <EpisodeDetails episode={selectedEpisode} />
+      <div className="main-grid">
+        <EpisodeList episodes={show.episodes} onSelect={setSelectedEpisode} />
+        <EpisodeDetails episode={selectedEpisode} />
+      </div>
     </section>
   );
 }
